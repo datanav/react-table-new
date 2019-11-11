@@ -18,7 +18,7 @@ Next, add the `useSortBy` hook to your `useTable` hook and add the necessary UI 
 
 ```diff
 function MyTable() {
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable(
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
       data,
       columns,
@@ -43,16 +43,17 @@ function MyTable() {
           </tr>
         ))}
       </thead>
-      <tbody>
+      <tbody {...getTableBodyProps()}>
         {rows.map(
-          (row, i) =>
-            prepareRow(row) || (
+          (row, i) => {
+            prepareRow(row);
+            return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                 })}
               </tr>
-            )
+            )}
         )}
       </tbody>
     </table>
@@ -61,7 +62,7 @@ function MyTable() {
 ```
 
 By default, the sorting will be `alphanumeric`. This can be changed in your `column` object.
-Other options include `basic` and `datettime`.
+Other options include `basic` and `datetime`.
 Note that if you're planning on sorting numbers between 0 and 1, `basic` sorting will be more accurate.
 
 More information can be found in the [API Docs](/docs/api.md#useSortBy)

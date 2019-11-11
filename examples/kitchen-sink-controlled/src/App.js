@@ -8,7 +8,6 @@ import {
   useGroupBy,
   useExpanded,
   useRowSelect,
-  useTableState,
 } from 'react-table'
 import matchSorter from 'match-sorter'
 
@@ -265,11 +264,10 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
     []
   )
 
-  const tableState = useTableState({ pageIndex: 2 })
-
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
+    getTableBodyProps,
     headerGroups,
     prepareRow,
     page, // Instead of using 'rows', we'll use page,
@@ -284,7 +282,14 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
     nextPage,
     previousPage,
     setPageSize,
-    state: [{ pageIndex, pageSize, groupBy, expanded, filters, selectedRows }],
+    state: {
+      pageIndex,
+      pageSize,
+      groupBy,
+      expanded,
+      filters,
+      selectedRowPaths,
+    },
   } = useTable(
     {
       columns,
@@ -292,7 +297,7 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
       defaultColumn,
       filterTypes,
       // nestExpandedRows: true,
-      state: tableState,
+      initialState: { pageIndex: 2 },
       // updateMyData isn't part of the API, but
       // anything we put into these options will
       // automatically be available on the instance.
@@ -344,10 +349,11 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody {...getTableBodyProps()}>
           {page.map(
-            row =>
-              prepareRow(row) || (
+            row => {
+              prepareRow(row);
+              return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     return (
@@ -373,7 +379,7 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
                     )
                   })}
                 </tr>
-              )
+              )}
           )}
         </tbody>
       </table>
@@ -437,7 +443,7 @@ function Table({ columns, data, updateMyData, disablePageResetOnDataChange }) {
               groupBy,
               expanded,
               filters,
-              selectedRows,
+              selectedRowPaths,
             },
             null,
             2

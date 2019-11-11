@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTable, usePagination, useTableState } from 'react-table'
+import { useTable, usePagination } from 'react-table'
 
 import makeData from './makeData'
 
@@ -38,11 +38,10 @@ const Styles = styled.div`
 `
 
 function Table({ columns, data }) {
-  const tableState = useTableState({ pageIndex: 2 })
-
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
+    getTableBodyProps,
     headerGroups,
     prepareRow,
     page, // Instead of using 'rows', we'll use page,
@@ -57,12 +56,12 @@ function Table({ columns, data }) {
     nextPage,
     previousPage,
     setPageSize,
-    state: [{ pageIndex, pageSize }],
+    state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
-      state: tableState,
+      initialState: { pageIndex: 2 },
     },
     usePagination
   )
@@ -95,10 +94,11 @@ function Table({ columns, data }) {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody {...getTableBodyProps()}>
           {page.map(
-            (row, i) =>
-              prepareRow(row) || (
+            (row, i) => {
+              prepareRow(row);
+              return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     return (
@@ -106,7 +106,7 @@ function Table({ columns, data }) {
                     )
                   })}
                 </tr>
-              )
+              )}
           )}
         </tbody>
       </table>

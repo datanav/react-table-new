@@ -202,6 +202,7 @@ function Table({ columns, data }) {
 
   const {
     getTableProps,
+    getTableBodyProps,
     headerGroups,
     rows,
     flatColumns,
@@ -264,11 +265,12 @@ function Table({ columns, data }) {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody {...getTableBodyProps()}>
           <AnimatePresence>
             {rows.slice(0, 10).map(
-              (row, i) =>
-                prepareRow(row) || (
+              (row, i) => {
+                prepareRow(row);
+                return (
                   <motion.tr
                     {...row.getRowProps({
                       layoutTransition: spring,
@@ -287,13 +289,13 @@ function Table({ columns, data }) {
                       )
                     })}
                   </motion.tr>
-                )
+                )}
             )}
           </AnimatePresence>
         </tbody>
       </table>
       <pre>
-        <code>{JSON.stringify(state[0], null, 2)}</code>
+        <code>{JSON.stringify(state, null, 2)}</code>
       </pre>
     </>
   )

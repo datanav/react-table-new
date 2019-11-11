@@ -39,11 +39,12 @@ const Styles = styled.div`
 function Table({ columns: userColumns, data, renderRowSubComponent }) {
   const {
     getTableProps,
+    getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
     flatColumns,
-    state: [{ expanded }],
+    state: { expanded },
   } = useTable(
     {
       columns: userColumns,
@@ -68,10 +69,11 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody {...getTableBodyProps()}>
           {rows.map(
-            (row, i) =>
-              prepareRow(row) || (
+            (row, i) => {
+              prepareRow(row);
+              return (
                 // Use a React.Fragment here so the table markup is still valid
                 <>
                   <tr {...row.getRowProps()}>
@@ -100,7 +102,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
                     </tr>
                   ) : null}
                 </>
-              )
+              )}
           )}
         </tbody>
       </table>

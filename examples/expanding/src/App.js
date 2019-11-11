@@ -36,10 +36,11 @@ const Styles = styled.div`
 function Table({ columns: userColumns, data }) {
   const {
     getTableProps,
+    getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
-    state: [{ expanded }],
+    state: { expanded },
   } = useTable(
     {
       columns: userColumns,
@@ -60,10 +61,11 @@ function Table({ columns: userColumns, data }) {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody {...getTableBodyProps()}>
           {rows.map(
-            (row, i) =>
-              prepareRow(row) || (
+            (row, i) => {
+              prepareRow(row);
+              return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     return (
@@ -71,7 +73,7 @@ function Table({ columns: userColumns, data }) {
                     )
                   })}
                 </tr>
-              )
+              )}
           )}
         </tbody>
       </table>

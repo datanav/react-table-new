@@ -4,33 +4,18 @@
 
 Hooks for building **lightweight, fast and extendable datagrids** for React
 
-<a href="https://travis-ci.org/tannerlinsley/react-table" target="\_parent">
-  <img alt="" src="https://travis-ci.org/tannerlinsley/react-table.svg?branch=master" />
-</a>
-<a href="https://npmjs.com/package/react-table" target="\_parent">
-  <img alt="" src="https://img.shields.io/npm/dm/react-table.svg" />
-</a>
-<a href="https://spectrum.chat/react-table">
-  <img alt="Join the community on Spectrum" src="https://withspectrum.github.io/badge/badge.svg" />
-</a>
-<a href="https://github.com/tannerlinsley/react-table" target="\_parent">
-  <img alt="" src="https://img.shields.io/github/stars/tannerlinsley/react-table.svg?style=social&label=Star" />
-</a>
-<a href="https://twitter.com/tannerlinsley" target="\_parent">
-  <img alt="" src="https://img.shields.io/twitter/follow/tannerlinsley.svg?style=social&label=Follow" />
-</a>
-<br />
-<br />
-<a href="https://patreon.com/tannerlinsley">
-  <img width="180" alt="" src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/become-a-patron.png" />
-</a>
+[![GitHub Actions CI](https://github.com/tannerlinsley/react-table/workflows/CI/badge.svg)](https://github.com/tannerlinsley/react-table/actions)
+[![Bundlephobia](https://badgen.net/bundlephobia/minzip/react-table@next)](https://bundlephobia.com/result?p=react-table@next)
+[![NPM Package](https://img.shields.io/npm/dm/react-table.svg)](https://npmjs.com/package/react-table)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/react-table)
+[![GitHub Stars](https://img.shields.io/github/stars/tannerlinsley/react-table.svg?style=social&label=Star)](https://github.com/tannerlinsley/react-table)
+[![Twitter Followers](https://img.shields.io/twitter/follow/tannerlinsley.svg?style=social&label=Follow)](https://twitter.com/tannerlinsley)
 
-<br />
-<br />
+### [Become a Sponsor](https://github.com/sponsors/tannerlinsley/)
 
 ## Features
 
-- Lightweight (4kb - 11kb depending on features and tree-shaking)
+- Lightweight (4kb - 9kb depending on features and tree-shaking)
 - Headless (100% customizable, Bring-your-own-UI)
 - Auto out of the box, fully controllable API
 - Sorting (Multi and Stable)
@@ -40,6 +25,8 @@ Hooks for building **lightweight, fast and extendable datagrids** for React
 - Row Expansion
 - Column Ordering
 - Animatable
+- Virtualizable
+- Resizable
 - Server-side/controlled data/state
 - Extensible via hook-based plugin system
 - <a href="https://medium.com/@tannerlinsley/why-i-wrote-react-table-and-the-problems-it-has-solved-for-nozzle-others-445c4e93d4a8#.axza4ixba" target="\_parent">"Why I wrote React Table and the problems it has solved for Nozzle.io"</a> by Tanner Linsley
@@ -48,11 +35,11 @@ Hooks for building **lightweight, fast and extendable datagrids** for React
 
 #### What is the current state of React Table?
 
-React Table v7 is still under active development, and its API is still changing, albeit only slightly. For this reason, it is currently in an **alpha** release state. It's estimated that it will be out of alpha and into **beta** sometime during September 2019. It will then remain in beta for a short time before being released sometime in Q4 of 2019.
+React Table v7 is still under active development, and its API is still changing, albeit only slightly. For this reason, it is currently in an **beta** release state. It's estimated that it will be fully released as a stable version sometime during October 2019.
 
-#### Should I use v7@alpha in production?
+#### Should I use v7@beta in production?
 
-You can use it production as long as you lock in the alpha version in your package.json and also accept that the API will likely change before it's official release.
+You can use it in production as long as you lock in the beta version in your package.json and also accept that there may be unlikely, but possible bug fixes and/or API changes before it's official release.
 
 #### I'm still using v6, what should I do?
 
@@ -66,6 +53,8 @@ Please [visit the v6 branch](https://github.com/tannerlinsley/react-table/tree/v
 
 The differences between the 2 versions are incredibly massive. Unfortunately, I cannot write a one-to-one upgrade guide for any of v6's API, simply because much of it is irrelevant with v7's headless approach. The best approach for migrating to v7 is to learn its API by reading the documentation and then following some of the examples to begin building your own table component.
 
+In case you would need to have both v6 and v7 in one app during the migration process (large codebase, complex use cases), you can install an official [`react-table-v6` package](https://www.npmjs.com/package/react-table-v6) alongside the `react-table`.
+
 ## Documentation
 
 - [Installation](./docs/installation.md) - Walk through how to install React Table
@@ -77,24 +66,46 @@ The differences between the 2 versions are incredibly massive. Unfortunately, I 
 
 ## Sponsors
 
-**React Table v7** is being built and maintained by me, @tannerlinsley and I am always in need of more Patreon support to keep this project afloat. If you would like to contribute to my Patreon goal for v7 and beyond, [visit my Patreon and help me out!](https://patreon.com/tannerlinsley)
+This library is being built and maintained by me, @tannerlinsley and I am always in need of more support to keep this project afloat. If you would like to get additional support, add your logo or name on this README, or simply just contribute to my open source Sponsorship goal, [visit my Github Sponsors page!](https://github.com/sponsors/tannerlinsley/)
 
 <table>
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://patreon.com/tannerlinsley" target="_blank">
-          <img width='200' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/platinum.png">
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/diamond.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Sponsor!
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://github.com/sponsors/tannerlinsley/" target="_blank">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/platinum.png">
         </a>
       </td>
       <td align="center" valign="middle">
         <a href="https://tryretool.com/?utm_source=sponsor&utm_campaign=react_table" target="_blank">
-          <img width='350' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-retool.png">
+          <img width='225' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-retool.png">
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="http://bjntech.com/index.html&utm_campaign=react_table" target="_blank">
-          <img width='250' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-bjn.png">
+        <a href="http://bjntech.com/index.html?utm_campaign=react_table" target="_blank">
+          <img width='225' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-bjn.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+       <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Sponsor!
         </a>
       </td>
     </tr>
@@ -105,18 +116,23 @@ The differences between the 2 versions are incredibly massive. Unfortunately, I 
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://patreon.com/tannerlinsley" target="_blank">
-          <img width='200' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/gold.png">
+        <a href="https://github.com/sponsors/tannerlinsley/" target="_blank">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/gold.png">
         </a>
       </td>
       <td align="center" valign="middle">
         <a href="https://nozzle.io" target="_blank">
-          <img width='230' src="https://nozzle.io/img/logo-blue.png">
+          <img width='225' src="https://nozzle.io/img/logo-blue.png">
         </a>
       </td>
       <td align="center" valign="middle">
         <a href="https://zappi.io/web/" target="_blank">
-          <img width='230' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-zappi.png">
+          <img width='225' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/sponsor-zappi.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Sponsor!
         </a>
       </td>
     </tr>
@@ -127,13 +143,13 @@ The differences between the 2 versions are incredibly massive. Unfortunately, I 
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://patreon.com/tannerlinsley" target="_blank">
-          <img width='200' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/silver.png">
+        <a href="https://github.com/sponsors/tannerlinsley/" target="_blank">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/silver.png">
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://patreon.com/tannerlinsley" target="_blank">
-          <img src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/silver-placeholder.png">
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Sponsor!
         </a>
       </td>
     </tr>
@@ -144,13 +160,20 @@ The differences between the 2 versions are incredibly massive. Unfortunately, I 
   <tbody>
     <tr>
       <td valign="top">
-        <a href="https://patreon.com/tannerlinsley">
-          <img width='200' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/supporters.png" />
+        <a href="https://github.com/sponsors/tannerlinsley/">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/supporters.png" />
         </a>
       </td>
       <td>
-        <div><a href="https://www.metso.com/">Pekka</a></div>
-        <div>Jon Eickmeier</div>
+        <ul>
+        <li>Jon Eickmeier</li>
+        <li><a href="https://github.com/Shah-Sahab">Syed Hussain<a></li>
+        </ul>
+      </td>
+      <td>
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Supporter!
+        </a>
       </td>
     </tr>
   </tbody>
@@ -160,23 +183,30 @@ The differences between the 2 versions are incredibly massive. Unfortunately, I 
   <tbody>
     <tr>
       <td valign="top">
-        <a href="https://patreon.com/tannerlinsley">
-          <img width='200' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/fans.png" />
+        <a href="https://github.com/sponsors/tannerlinsley/">
+          <img width='150' src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/fans.png" />
         </a>
       </td>
       <td>
-        <div>Sortmy.games</div>
-        <div>Hugo Meissner</div>
-        <div>Benoit Leger-Derville</div>
-        <div>Thomas Funk</div>
-        <div>Dan Houle</div>
-        <div>David Pickut</div>
-        <div>Jordan Soltman</div>
+        <ul>
+        <li>Sortmy.games</li>
+        <li>Hugo Meissner</li>
+        <li>Benoit Leger-Derville</li>
+        <li>Thomas Funk</li>
+        <li>Dan Houle</li>
+        <li>David Pickut</li>
+        <li>Jordan Soltman</li>
+        <li>Robert Tajnšek</li>
+        <li>Pekka Tapani</li>
+        </ul>
+      </td>
+      <td>
+        <a href="https://github.com/sponsors/tannerlinsley" target="_blank">
+          Become a Fan!
+        </a>
       </td>
     </tr>
   </tbody>
 </table>
 
-<a href="https://patreon.com/tannerlinsley">
-  <img width="150" alt="" src="https://raw.githubusercontent.com/tannerlinsley/files/master/images/patreon/become-a-patron.png" />
-</a>
+### [Become a Sponsor](https://github.com/sponsors/tannerlinsley/)
